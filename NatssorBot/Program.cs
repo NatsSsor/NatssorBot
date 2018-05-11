@@ -14,7 +14,7 @@ namespace NatssorBot
         private CommandService _commands;
         private IServiceProvider _services;
 
-        private const string token = "NDQ0NTQ2ODI0NDc3MzQzNzQ0.Dddszg.umydr55j1YzmNMR0FoV4F1J78kg";
+        private const string token = "NDQ0NTY1ODA5NzU1NDU1NDg5.Dddxxg.3lAdQ0YmgH0lu6usXDy48Yq037E";
 
         static void Main(string[] args) => new Program().RunBotAsync().GetAwaiter().GetResult();
         
@@ -58,7 +58,7 @@ namespace NatssorBot
             if (message == null || message.Author.IsBot) return;
 
             var argPos = 0;
-            if (message.HasStringPrefix("ross!", ref argPos) || message.HasMentionPrefix(_client.CurrentUser, ref argPos))
+            if (message.HasStringPrefix("Tanya!", ref argPos) || message.HasMentionPrefix(_client.CurrentUser, ref argPos))
             {
                 var context = new SocketCommandContext(_client, message);
                 var result = await _commands.ExecuteAsync(context, argPos, _services);
