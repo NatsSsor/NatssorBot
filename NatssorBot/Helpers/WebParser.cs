@@ -21,8 +21,8 @@ namespace NatssorBot.Helpers
             int count = 0;
             string Url = "http://anichart.net/?season=Spring&year=2018&type=Tv&sort=-popularity";
             var engine = new Engine();
-            engine.OpenUrl("https://myanimelist.net/anime/season/schedule");
-            
+            //engine.OpenUrl("https://myanimelist.net/anime/season/schedule");
+            engine.OpenUrl("https://www.livechart.me/schedule/tv");
             //HtmlWeb web = new HtmlWeb();
             //HtmlDocument doc = web.Load(Url);
 
