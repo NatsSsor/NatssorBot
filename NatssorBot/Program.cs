@@ -14,7 +14,7 @@ namespace NatssorBot
         private CommandService _commands;
         private IServiceProvider _services;
 
-        private const string token = "NDQ0NTY1ODA5NzU1NDU1NDg5.Dddxxg.3lAdQ0YmgH0lu6usXDy48Yq037E";
+        
 
         static void Main(string[] args) => new Program().RunBotAsync().GetAwaiter().GetResult();
         
@@ -31,7 +31,7 @@ namespace NatssorBot
             _client.Log += LogHandler;
 
             await RegisterCommandsAsync();
-            await _client.LoginAsync(TokenType.Bot, token);
+            await _client.LoginAsync(TokenType.Bot, Properties.Settings.Default.APIKey);
             await _client.StartAsync();
 
             await _client.SetStatusAsync(UserStatus.Online);
