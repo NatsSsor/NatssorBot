@@ -25,6 +25,7 @@ namespace NatssorBot.Modules
             foreach(var message in temppinnedMessages)
             {
                 pinnedMessages.Add(message);
+                Console.WriteLine("Got pinned message: " + message.Content);
             }
             //List<Discord.IMessage> messages = new List<Discord.IMessage>();
             List<Discord.IMessage> messages = new List<Discord.IMessage>();
@@ -39,7 +40,16 @@ namespace NatssorBot.Modules
             
             foreach (var message in pinnedMessages)
             {
-                messages.Remove(message);
+                try
+                {
+                    messages.Remove(messages.Where(x => x.Id == message.Id).First());
+                    Console.WriteLine("Attempted to remove pinned message from list of messages to remove: " + message.Content);
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine("Error removing pinned message: " + message.Content + " with exception " + ex.Message);
+                }
+               
             }
 
             await channel.DeleteMessagesAsync(messages);
